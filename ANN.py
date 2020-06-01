@@ -164,7 +164,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
                   'tuned_optimiser': ['adam',  'SGD'],
                   'regularisation_amount' : [0.25, 0.5],
                   'architecture' : [1],
-                  'hidden_layers' : [2, 5]}
+                  'hidden_layers' : [3]}
     
     grid_search = GridSearchCV(estimator = classifier,
                                param_grid = parameters,

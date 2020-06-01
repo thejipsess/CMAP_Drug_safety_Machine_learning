@@ -27,7 +27,7 @@ X_train, Y_train, X_test, Y_test = init(file = 'all',
                                         downsample = False)
 
 # %% Feature Selection
-important_feat_index = Tree_prediction.feature_selection(X_train, Y_train,
+important_feat_index = Tree_prediction.select_features(X_train, Y_train,
                                                          threshold = 'mean')
 
 # Filter all the data on the feature selection

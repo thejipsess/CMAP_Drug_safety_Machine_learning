@@ -112,14 +112,16 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     #===Set the range of possible values for all parameters===#
         
     # Number of trees in random forest
-    n_estimators = [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]
+    n_estimators = [50, 100, 200, 400, 800, 1000, 1400, 2000]
     
     # Number of features to consider at every split
-    max_features = ['auto', 'sqrt']
+    max_features = ['auto', 'None']
     
     # Maximum number of levels in tree
-    max_depth = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
-    max_depth.append(None)
+    max_depth = [10, 20, 30, 40, 60, 80, 110, None]
+    
+    # Grow trees with max_leaf_nodes in best-first fashion
+    max_leaf_nodes = [10, 100, None]
     
     # Minimum number of samples required to split a node
     min_samples_split = [2, 10, 20]
@@ -134,6 +136,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     random_grid = {'n_estimators': n_estimators,
                    'max_features': max_features,
                    'max_depth': max_depth,
+                   'max_leaf_nodes' : max_leaf_nodes,
                    'min_samples_split': min_samples_split,
                    'min_samples_leaf': min_samples_leaf,
                    'bootstrap': bootstrap}
@@ -157,18 +160,22 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     bootstrap = param_opt_rand.best_estimator_.bootstrap
     max_depth = param_opt_rand.best_estimator_.max_depth
     max_features = param_opt_rand.best_estimator_.max_features
+    max_leaf_nodes = param_opt_rand.best_estimator_.max_leaf_nodes
     min_samples_leaf = param_opt_rand.best_estimator_.min_samples_leaf
     min_samples_split = param_opt_rand.best_estimator_.min_samples_split
     n_estimators = param_opt_rand.best_estimator_.n_estimators
     
     # IDEA: implement a precision variable. Divide the step size and the offset
     # used in the np.arange() by the precision which should by default be 1.
+    # Note: if 'None' gets selected for some param there might be an error here
     param_grid = {
         'bootstrap': [bootstrap],
         'max_depth': np.arange(max_depth-10, max_depth + 21, 10),
         'max_features': ['auto', 'sqrt'],
         'min_samples_leaf': np.arange(min_samples_leaf - 1 ,
                                       min_samples_leaf + 2),
+        'max_leaf_nodes' : np.arange(max_leaf_nodes - 10,
+                                      max_leaf_nodes + 10, 2),
         'min_samples_split': np.arange(min_samples_split - 1,
                                        min_samples_split + 2),
         'n_estimators': np.arange(n_estimators - 200,
@@ -199,7 +206,6 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     final_accuracy = classifier_gridsearch.best_estimator_.score(X_test,
                                                                  Y_test)
 
-    
     # print the results
     print("Random Forests hyperparamter optimisation completed succesfully.")
     print(f"Best random forests model accuracy: {final_accuracy}")
@@ -207,7 +213,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     return classifier_gridsearch
 
 
-def feature_selection(X_train, Y_train, threshold = 'mean'):
+def select_features(X_train, Y_train, threshold = 'mean'):
     # Initialise the forst model with feature selection
     classifier =  SelectFromModel(RandomForestClassifier(),
                                   threshold = 'mean')
