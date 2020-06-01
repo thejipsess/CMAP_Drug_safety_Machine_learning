@@ -75,7 +75,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     from keras.wrappers.scikit_learn import KerasClassifier
     from sklearn.model_selection import GridSearchCV
     from keras.models import Sequential
-    from keras.layers import Dense
+    from keras.layers import Dense, Dropout
     from keras.regularizers import l2
     
     def build_model(tuned_optimiser,

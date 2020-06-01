@@ -122,10 +122,10 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     max_depth.append(None)
     
     # Minimum number of samples required to split a node
-    min_samples_split = [2, 5, 10]
+    min_samples_split = [2, 10, 20]
     
     # Minimum number of samples required at each leaf node
-    min_samples_leaf = [1, 2, 4]
+    min_samples_leaf = [1, 4, 8]
     
     # Method of selecting samples for training each tree
     bootstrap = [True, False]
@@ -166,14 +166,14 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     param_grid = {
         'bootstrap': [bootstrap],
         'max_depth': np.arange(max_depth-10, max_depth + 21, 10),
-        'max_features': [2, 3],
+        'max_features': ['auto', 'sqrt'],
         'min_samples_leaf': np.arange(min_samples_leaf - 1 ,
                                       min_samples_leaf + 2),
         'min_samples_split': np.arange(min_samples_split - 1,
                                        min_samples_split + 2),
-        'n_estimators': np.arange(n_estimators - 300,
-                                  n_estimators + 601,
-                                  300)
+        'n_estimators': np.arange(n_estimators - 200,
+                                  n_estimators + 401,
+                                  200)
     }
     
     # Find the optimal hyperparameters using gridsearch
@@ -210,7 +210,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
 def feature_selection(X_train, Y_train, threshold = 'mean'):
     # Initialise the forst model with feature selection
     classifier =  SelectFromModel(RandomForestClassifier(),
-                                  threshold = threshold)
+                                  threshold = 'mean')
     # Setup the repeated Kfold cross validation
     cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3)
 
@@ -218,6 +218,9 @@ def feature_selection(X_train, Y_train, threshold = 'mean'):
     # of the cummulative feature importances and counts
     classifier.fit(X_train, Y_train)
     feat_importances = classifier.estimator_.feature_importances_
+    # Feat_counts is currently redundant as it counts how often a feature is 
+    # selected based on the 'SelectFromModel' threshold which does not support
+    # a top n features. Feat_counts is therefore not used at the moment.
     feat_counts = classifier.get_support().astype(int)
     count = 0
     # Run through the cross validation loops abd record the feature selection
@@ -230,17 +233,27 @@ def feature_selection(X_train, Y_train, threshold = 'mean'):
         count += 1
     feat_importances = feat_importances/count
     
+    # use_top is by default false such that a numeric threshold is used
+    use_top = False
+    
     # Select the important features
     if threshold == 'mean':
         threshold = np.mean(feat_importances)
     elif threshold == 'median':
         threshold = np.median(feat_importances)
+    elif type(threshold) == str and threshold[0:3] == 'top':
+        # If a top n features is specified, use_top will be set to True so
+        top = int(threshold[3:len(threshold)])
+        use_top = True
     else:
         try:
             threshold = float(threshold)
         except:
             raise Exception('Invalid theshold!')
     
+    if use_top:
+        # Set threshold to the lowest importance value in the top n features
+        threshold = np.sort(feat_importances, axis = -1)[::-1][top-1]
     important_feat_index = feat_importances >= threshold
     
     return important_feat_index

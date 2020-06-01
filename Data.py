@@ -11,6 +11,20 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
+# %% Filtering the data based on feature index array 
+def feature_filter(data, feat_index):
+    # This function takes your X_train & X_test data and filters out the
+    # selected features based on the feat_index which is a boolean indexer.
+    for i in range(len(data)):
+        
+        # Filter appropriately depending on data type
+        if type(data[i]) == np.ndarray:
+            data[i] = data[i][:, feat_index]
+        else:
+            datac[i] = data[i].iloc[:, feat_index]
+            
+    return data
+
 # %% Loading & pre-processing of the data
 def init(feature = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
          upsample = False, downsample = False):
@@ -155,16 +169,3 @@ def init(feature = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
     else:
         return(X_train, Y_train, X_test, Y_test)
     
-    
-    def feature_filter(data, feat_index):
-        # This function takes your X_train & X_test data and filters out the
-        # selected features based on the feat_index which is a boolean indexer.
-        for i in range(len(data)):
-            
-            # Filter appropriately depending on data type
-            if type(data[i]) == np.ndarray:
-                data[i] = data[i][:, feat_index]
-            else:
-                datac[i] = data[i].iloc[:, feat_index]
-                
-        return data

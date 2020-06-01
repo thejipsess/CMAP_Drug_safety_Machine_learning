@@ -11,28 +11,28 @@ import os
 # %% Set the working directory
 # IMPORTNAT!! make sure to set the working directory to the path where you
 # stored the python files, including this script.
-os.chdir('D:/OneDrive/school/1. Master/8. Machine Learning and Multivariate '
-         + 'Statistics/Assignment')
+os.chdir('C:/Users/jipde/OneDrive/school/1. Master/8. Machine Learning and Multivariate '
+         + 'Statistics/Assignment/CMAP_Drug_safety_Machine_learning')
 
 # Load local scripts
-import Data
+from Data import init, feature_filter
 import Tree_prediction
 import SVM_prediction
 import ANN
 
 # %% Initialise the data
 
-X_train, Y_train, X_test, Y_test = Data.init(file = 'all',
-                                             upsample = True,
-                                             downsample = False)
+X_train, Y_train, X_test, Y_test = init(file = 'all',
+                                        upsample = True,
+                                        downsample = False)
 
 # %% Feature Selection
 important_feat_index = Tree_prediction.feature_selection(X_train, Y_train,
                                                          threshold = 'mean')
 
 # Filter all the data on the feature selection
-[X_train, X_test] = Data.feature_filter([X_train, X_test],
-                                        important_feat_index)
+[X_train, X_test] = feature_filter([X_train, X_test],
+                                   important_feat_index)
 
 # %% Decision Tree and Random Forests
 forest_model = Tree_prediction.hyperparameter_tuning(X_train, Y_train,
