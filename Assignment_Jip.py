@@ -11,7 +11,7 @@ import os
 # %% Set the working directory
 # IMPORTNAT!! make sure to set the working directory to the path where you
 # stored the python files, including this script.
-os.chdir('C:/Users/jipde/OneDrive/school/1. Master/8. Machine Learning and Multivariate '
+os.chdir('D:/OneDrive/school/1. Master/8. Machine Learning and Multivariate '
          + 'Statistics/Assignment/CMAP_Drug_safety_Machine_learning')
 
 # Load local scripts

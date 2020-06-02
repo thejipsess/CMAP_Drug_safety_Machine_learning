@@ -119,10 +119,10 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     max_features = ['auto', 'None']
     
     # Maximum number of levels in tree
-    max_depth = [10, 20, 30, 40, 60, 80, 110, None]
+    max_depth = [10, 20, 30, 40, 60, 80, 110]
     
     # Grow trees with max_leaf_nodes in best-first fashion
-    max_leaf_nodes = [10, 100, None]
+    max_leaf_nodes = [10, 100]
     
     # Minimum number of samples required to split a node
     min_samples_split = [2, 10, 20]
@@ -171,12 +171,12 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     # Note: if 'None' gets selected for some param there might be an error here
     param_grid = {
         'bootstrap': [bootstrap],
-        'max_depth': np.arange(max_depth-10, max_depth + 21, 10),
+        'max_depth': [np.arange(max_depth-10, max_depth + 21, 10), None],
         'max_features': ['auto', 'sqrt'],
         'min_samples_leaf': np.arange(min_samples_leaf - 1 ,
                                       min_samples_leaf + 2),
-        'max_leaf_nodes' : np.arange(max_leaf_nodes - 10,
-                                      max_leaf_nodes + 10, 2),
+        'max_leaf_nodes' : [np.arange(max_leaf_nodes - 10,
+                                      max_leaf_nodes + 10, 2), None],
         'min_samples_split': np.arange(min_samples_split - 1,
                                        min_samples_split + 2),
         'n_estimators': np.arange(n_estimators - 200,
@@ -204,7 +204,8 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     RandomForests_params_file.close()
     
     # Locally save the entire model
-    joblib.dump(classifier_gridsearch.best_estimator_, f'{save_name}.pkl')
+    joblib.dump(classifier_gridsearch.best_estimator_,
+                f'Models/RandomForests/{save_name}.pkl')
     
     # Evaluate the optimal model
     final_accuracy = classifier_gridsearch.best_estimator_.score(X_test,
