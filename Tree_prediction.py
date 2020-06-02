@@ -106,7 +106,8 @@ def fit(X_train, Y_train, X_test, Y_test,
     # f1
     # roc_auc
 
-def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_accuracy'):
+def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
+                          score = 'balanced_accuracy', save_name = 'forest_model'):
     classifier =  RandomForestClassifier()
     
     #===Set the range of possible values for all parameters===#
@@ -201,6 +202,9 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test, score = 'balanced_ac
     RandomForests_params_file = open("Hyperparameters/RandomForests.pkl", "wb")
     pickle.dump(RandomForests_params_opt, RandomForests_params_file)
     RandomForests_params_file.close()
+    
+    # Locally save the entire model
+    joblib.dump(classifier_gridsearch.best_estimator_, f'{save_name}.pkl')
     
     # Evaluate the optimal model
     final_accuracy = classifier_gridsearch.best_estimator_.score(X_test,
