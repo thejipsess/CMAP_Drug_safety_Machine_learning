@@ -10,10 +10,12 @@ from sklearn import tree, feature_selection
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV, RepeatedStratifiedKFold
 from sklearn.feature_selection import SelectFromModel
+from sklearn import metrics
 from sklearn.metrics import classification_report
 import numpy as np
 from numpy import random
 import pickle
+import joblib
 
 # %% Fit the model
 def fit(X_train, Y_train, X_test, Y_test,
@@ -168,7 +170,6 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     
     # IDEA: implement a precision variable. Divide the step size and the offset
     # used in the np.arange() by the precision which should by default be 1.
-    # Note: if 'None' gets selected for some param there might be an error here
     param_grid = {
         'bootstrap': [bootstrap],
         'max_depth': [np.arange(max_depth-10, max_depth + 21, 10), None],
@@ -210,10 +211,13 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     # Evaluate the optimal model
     final_accuracy = classifier_gridsearch.best_estimator_.score(X_test,
                                                                  Y_test)
+    final_roc_auc_score = metrics.roc_auc_score(Y_test,
+                                                classifier_gridsearch.best_estimator_.predict(X_test))
 
     # print the results
     print("Random Forests hyperparamter optimisation completed succesfully.")
     print(f"Best random forests model accuracy: {final_accuracy}")
+    print(f"Best random forests model roc_auc: {final_roc_auc_score}")
     
     return classifier_gridsearch
 

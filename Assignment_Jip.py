@@ -22,7 +22,7 @@ import ANN
 
 # %% Initialise the data
 
-X_train, Y_train, X_test, Y_test = init(file = 'all',
+X_train, Y_train, X_test, Y_test = init(file = 'p10-random-camda2020.csv',
                                         upsample = True,
                                         downsample = False)
 
@@ -37,7 +37,8 @@ important_feat_index = Tree_prediction.select_features(X_train, Y_train,
 # %% Decision Tree and Random Forests
 forest_model = Tree_prediction.hyperparameter_tuning(X_train, Y_train,
                                                      X_test, Y_test,
-                                                     score = 'roc_auc')
+                                                     score = 'roc_auc',
+                                                     save_name = 'forest_model_mean_p10')
 
 Tree_model, forest_model = Tree_prediction.fit(X_train,Y_train,
                                                X_test, Y_test,

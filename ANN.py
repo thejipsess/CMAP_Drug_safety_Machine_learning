@@ -104,10 +104,12 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
                 classifier.add(Dropout(rate = regularisation_amount))
             
             # Add the output layer, we have an output array of one column, thus units = 1
-            classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
+            classifier.add(Dense(units = 1, kernel_initializer = 'uniform',
+                                 activation = 'sigmoid'))
             
             # Compiling the ANN
-            classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['binary_accuracy'])
+            classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy',
+                               metrics = ['binary_accuracy'])
         
         elif architecture == 2:
             # Initialising the sequential model
@@ -159,12 +161,12 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
                                  batch_size = 10,
                                  epochs = 100)    
     
-    parameters = {'batch_size': [1, 32, 64],
-                  'epochs': [10, 100, 200],
+    parameters = {'batch_size': [1, 64],
+                  'epochs': [10, 100],
                   'tuned_optimiser': ['adam',  'SGD'],
-                  'regularisation_amount' : [0.25, 0.5],
+                  'regularisation_amount' : [0.5, 0.75],
                   'architecture' : [1],
-                  'hidden_layers' : [3]}
+                  'hidden_layers' : [2]}
     
     grid_search = GridSearchCV(estimator = classifier,
                                param_grid = parameters,
