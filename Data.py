@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.utils import resample
 
 # %% Filtering the data based on feature index array 
 def feature_filter(data, feat_index):
@@ -21,13 +22,14 @@ def feature_filter(data, feat_index):
         if type(data[i]) == np.ndarray:
             data[i] = data[i][:, feat_index]
         else:
-            datac[i] = data[i].iloc[:, feat_index]
+            data[i] = data[i].iloc[:, feat_index]
             
     return data
 
 # %% Loading & pre-processing of the data
 def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
          upsample = False, downsample = False):
+    
     if downsample == True & upsample == True:
         raise Exception("Downsample and upsample cannot both be True!")
     
@@ -69,11 +71,11 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
     
     # Ensure that X and Y have identical CAM_IDs in each row
     if not Y.CAM_ID.equals(X.CAM_ID):
-        raise Exception('X != Y...  make sure the rows of X and Y describe the ' +
-                        'same samples!!')
-    
+        raise Exception('X != Y...  make sure the rows of X and Y describe ' +
+                        'the same samples!!')
     
     # Seperate the validation sets
+    # These sets are currently not used
     Y_val = Y.loc[Y.Training_Validation != 'Training Set']
     X_val = X.loc[X.CAM_ID.isin(Y_val.CAM_ID)]
     
@@ -81,6 +83,8 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
     Y = Y.loc[Y.Training_Validation == 'Training Set']
     X = X.loc[X.CAM_ID.isin(Y.CAM_ID)]
     
+    # when upsampling remove the CAM_ID column as there will be duplicates 
+    # which can thus not be used as index. Otherwise set CAM_ID as index
     if upsample:
         X.drop('CAM_ID',axis = 1, inplace = True)
         Y.drop('CAM_ID',axis = 1, inplace = True)
@@ -91,22 +95,19 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
     
     # Create the test and training set
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y,
-                                                    test_size = 0.2,
-                                                    random_state =
-                                                    np.random.randint(0, 10000))
-    
-    
+                                                    test_size = 0.2)
+
     if upsample == True:
         #  Up-sample the minority class in the data to balance the classes
-        from sklearn.utils import resample
         
+        # Combine X_train and Y_train in one dataframe
         df = pd.concat([X_train, Y_train], axis = 1)
         
         # Separate majority and minority classes
         df_majority = df[df.DILI1==0]
         df_minority = df[df.DILI1==1]
          
-        # Upsample minority class
+        # Upsample the minority class
         df_minority_upsampled = resample(df_minority, 
                                           replace=True,                      # sample with replacement
                                           n_samples=df_majority.shape[0],    # to match majority class
@@ -118,16 +119,17 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
         # Shuffle the rows such that the dataframe is not sorted on class
         df_upsampled = df_upsampled.sample(frac=1)
         
-        # Display new class counts
+        # Display new class counts (Only works in console)
         df_upsampled.DILI1.value_counts()
         
+        # Split X_train and Y_train from the dataframe into seperate variables
         X_train = df_upsampled.iloc[:,0:df_upsampled.shape[1]-7]
         Y_train = df_upsampled.iloc[:,df_upsampled.shape[1]-7:df_upsampled.shape[1]]
         
     if downsample == True:
         #  Up-sample the minority class in the data to balance the classes
-        from sklearn.utils import resample
         
+        # Combine X_train and Y_train in one dataframe
         df = pd.concat([X_train, Y_train], axis = 1)
         
         # Separate majority and minority classes
@@ -149,11 +151,12 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
         # Display new class counts
         df_downsampled.DILI1.value_counts()
         
+        # Split X_train and Y_train from the dataframe into seperate variables
         X_train = df_downsampled.iloc[:,0:df_upsampled.shape[1]-7]
         Y_train = df_downsampled.iloc[:,df_upsampled.shape[1]-7:df_upsampled.shape[1]]
     
  
-    # Feature Scaling
+    # Feature Scaling (mean center and scale to unit variance)
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
