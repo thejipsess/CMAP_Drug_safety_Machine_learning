@@ -26,7 +26,7 @@ def feature_filter(data, feat_index):
     return data
 
 # %% Loading & pre-processing of the data
-def init(feature = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
+def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
          upsample = False, downsample = False):
     if downsample == True & upsample == True:
         raise Exception("Downsample and upsample cannot both be True!")

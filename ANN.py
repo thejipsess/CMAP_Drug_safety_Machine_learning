@@ -108,7 +108,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
                                  activation = 'sigmoid'))
             
             # Compiling the ANN
-            classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy',
+            classifier.compile(optimizer = tuned_optimiser, loss = 'binary_crossentropy',
                                metrics = ['binary_accuracy'])
         
         elif architecture == 2:
@@ -138,6 +138,26 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
             classifier.compile(optimizer = tuned_optimiser,
                                loss = 'binary_crossentropy',
                                metrics = ['binary_accuracy'])
+        elif architecture == 3:
+            # Initialising the sequential model
+            classifier = Sequential()
+            
+            # Add the input layer and the first hidden layer with L2 regularisation
+            classifier.add(Dense(units = 30,
+                                 kernel_initializer = 'uniform',
+                                 activation = 'relu',
+                                 kernel_regularizer = l2(regularisation_amount),
+                                 input_dim = X_train.shape[1]))
+            
+            # Add the output layer
+            classifier.add(Dense(units = 1,
+                                 kernel_initializer = 'uniform',
+                                 activation = 'sigmoid'))
+            
+            # Compiling the ANN
+            classifier.compile(optimizer = tuned_optimiser, loss = 'binary_crossentropy',
+                               metrics = ['accuracy'])
+            
         else:
             raise Exception('Unknown Architecture')
             
@@ -161,17 +181,17 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
                                  batch_size = 10,
                                  epochs = 100)    
     
-    parameters = {'batch_size': [1, 64],
-                  'epochs': [10, 100],
+    parameters = {'batch_size': [32, 12],
+                  'epochs': [20, 30],
                   'tuned_optimiser': ['adam',  'SGD'],
-                  'regularisation_amount' : [0.5, 0.75],
-                  'architecture' : [1],
-                  'hidden_layers' : [2]}
+                  'regularisation_amount' : [0.4, 0.5],
+                  'architecture' : [3],
+                  'hidden_layers' : [3]}
     
     grid_search = GridSearchCV(estimator = classifier,
                                param_grid = parameters,
                                scoring = 'roc_auc',
-                               cv = 10,
+                               cv = 5,
                                n_jobs = 1,
                                verbose = 2,
                                return_train_score = True,

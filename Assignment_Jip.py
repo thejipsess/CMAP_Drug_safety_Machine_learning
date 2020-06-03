@@ -10,7 +10,7 @@ Created on Thu May 14 11:50:56 2020
 import os
 # %% Set the working directory
 # IMPORTNAT!! make sure to set the working directory to the path where you
-# stored the python files, including this script.
+# stored the python files, including this script and the Data & Models folders.
 os.chdir('D:/OneDrive/school/1. Master/8. Machine Learning and Multivariate '
          + 'Statistics/Assignment/CMAP_Drug_safety_Machine_learning')
 
@@ -22,7 +22,8 @@ import ANN
 
 # %% Initialise the data
 
-X_train, Y_train, X_test, Y_test = init(file = 'p10-random-camda2020.csv',
+X_train, Y_train, X_test, Y_test = init(file = 'all',
+                                        label = 'DILI1',
                                         upsample = True,
                                         downsample = False)
 
@@ -38,7 +39,7 @@ important_feat_index = Tree_prediction.select_features(X_train, Y_train,
 forest_model = Tree_prediction.hyperparameter_tuning(X_train, Y_train,
                                                      X_test, Y_test,
                                                      score = 'roc_auc',
-                                                     save_name = 'forest_model_mean_p10')
+                                                     save_name = 'forest_model_all_10')
 
 Tree_model, forest_model = Tree_prediction.fit(X_train,Y_train,
                                                X_test, Y_test,
@@ -46,8 +47,8 @@ Tree_model, forest_model = Tree_prediction.fit(X_train,Y_train,
 
 
 # %% Support Vector machine
-SVM_model =  SVM_prediction.fit(X_train, Y_train,
-                                X_test, Y_test)
+SVM_model =  SVM_prediction.hyperparameter_tuning(X_train, Y_train,
+                                                  X_test, Y_test)
 
 # %% Artificial Neural Network
 ANN_model = ANN.hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
