@@ -4,11 +4,15 @@ Created on Thu May 14 12:36:57 2020
 
 @author: The Jipsess
 """
+# Import packages
 from sklearn import svm, metrics
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 import numpy as np
 from numpy import random
+import pickle
+import joblib
 
+# %% Train one Support Vector Machine (SVM)
 def fit(X_train, Y_train, X_test, Y_test, num_features = 2):
     
     if num_features == 2:
@@ -26,9 +30,11 @@ def fit(X_train, Y_train, X_test, Y_test, num_features = 2):
     
     return (SVM_model)
     
-# %% Find the optimal paramters
+# %% Find the optimal hyperparamters for the SVM classifier
+def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
+                          save_name = 'SVM_model'):
     
-def hyperparameter_tuning(X_train, Y_train, X_test, Y_test):
+    # Initialise the SVM classifier
     classifier =  svm.SVC(cache_size = 1024,
                           class_weight = 'balanced',
                           random_state = random.randint(1,10000))
@@ -39,7 +45,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test):
     kernel = ['linear', 'rbf', 'poly', 'sigmoid']
     tol = [0.0001, 0.001, 0.01]
     
-    # Wrap the parameter space in random_grid
+    # Wrap the parameter values in random_grid
     random_grid = {'C' : C,
                    'gamma' : gamma,
                    'kernel' : kernel,
@@ -47,12 +53,12 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test):
     
     #===Run a randomised search for the optimal parameter setting===#
     classifier_random = RandomizedSearchCV(estimator = classifier,
-                                       param_distributions = random_grid,
-                                       n_iter = 100,
-                                       cv = 5,
-                                       verbose = 2,
-                                       random_state = random.randint(1,10000),
-                                       n_jobs = -1)
+                                        param_distributions = random_grid,
+                                        n_iter = 100,
+                                        cv = 5,
+                                        verbose = 2,
+                                        random_state = random.randint(1,10000),
+                                        n_jobs = -1)
     
     # Fit the random search model
     param_opt_rand = classifier_random.fit(X_train, Y_train)
@@ -93,7 +99,16 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test):
                                                                  Y_test)
     final_roc_auc_score = metrics.roc_auc_score(Y_test,
                                                 classifier_gridsearch.best_estimator_.predict(X_test))
-
+    
+    # Locally save results
+    RandomForests_params_file = open("Hyperparameters/SVM.pkl", "wb")
+    pickle.dump(RandomForests_params_opt, RandomForests_params_file)
+    RandomForests_params_file.close()
+    
+    # Locally save the entire model
+    joblib.dump(classifier_gridsearch.best_estimator_,
+                f'Models/SVM/{save_name}.pkl')
+    
     # print the results
     print("Support Vector Machine hyperparamter optimisation completed succesfully.")
     print(f"Best SVM model accuracy: {final_accuracy}")

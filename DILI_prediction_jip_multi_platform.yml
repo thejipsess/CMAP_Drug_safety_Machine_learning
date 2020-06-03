@@ -1,0 +1,13 @@
+name: keras-cuda2
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - keras-gpu
+  - scikit-learn
+  - python
+  - spyder
+  - numpy
+  - matplotlib
+prefix: C:\ProgramData\Anaconda3\envs\keras-cuda2
+

@@ -160,9 +160,9 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
     
     # Set feature to train/test the model on
     Y_train_all = Y_train
-    Y_train = Y_train[feature]
+    Y_train = Y_train[label]
     Y_test_all = Y_test
-    Y_test = Y_test[feature]
+    Y_test = Y_test[label]
     
     if return_all:
         return(X_train, Y_train, X_test, Y_test, Y_train_all, Y_test_all)

@@ -21,7 +21,7 @@ import joblib
 def fit(X_train, Y_train, X_test, Y_test,
         use_local_parameters = False):
     
-    # %% 1 build a decision tree model
+    # build a decision tree model
     
     # train the decision tree model
     classifier = tree.DecisionTreeClassifier()
@@ -30,7 +30,7 @@ def fit(X_train, Y_train, X_test, Y_test,
     # Evaluate the performance of the model
     tree_score = tree_model.score(X_test,Y_test)
     
-    # %% 2 Build a random forests algorithm
+    # Build a random forests algorithm
     if use_local_parameters:
         try:
             # Load the local file containing the hyperparameter settings
@@ -68,25 +68,9 @@ def fit(X_train, Y_train, X_test, Y_test,
     
     # Train the Random Forests model on top of the previous built model
     forest_model = classifier.fit(X_train, Y_train)
-    
-    # from sklearn.model_selection import RepeatedStratifiedKFold
-    # from sklearn.model_selection import cross_val_score
-    # cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=3, random_state=1)
-    # n_scores = cross_val_score(classifier, X_train, Y_train, scoring='accuracy', cv=cv, n_jobs=-1, error_score='raise')
-    # for train, test in cv.split(X_train, Y_train):
-    #     X = X_train[train]
-    #     Y = Y_train[train]
-    #     classifier.n_estimators = int(classifier.n_estimators * 1.25)
-    #     forest_model = classifier.fit(X, Y)
-    
-    # from sklearn.model_selection import cross_validate
-    # cv_results = cross_validate(classifier.fit(X_train, Y_train),
-    #                              X_train, Y_train,
-    #                              cv=5, scoring='balanced_accuracy')
         
     
-    # %% report performance
-    #print(f'Accuracy: {np.mean(n_scores)} {np.mean(n_scores)}')
+    # report performance
     
     # Evaluate the performance of the model
     forest_score = forest_model.score(X_test,Y_test)
@@ -221,8 +205,12 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     
     return classifier_gridsearch
 
-
+# %% Find the features that satisfy a given importance threshold
 def select_features(X_train, Y_train, threshold = 'mean'):
+    # IDEA: implement a check for the availability of a local hyperparameter
+    # fil such that that the feature selection can be performed using a
+    # hyperparameter optimised random forest opposed to a default one.
+    
     # Initialise the forst model with feature selection
     classifier =  SelectFromModel(RandomForestClassifier(),
                                   threshold = 'mean')
@@ -237,8 +225,9 @@ def select_features(X_train, Y_train, threshold = 'mean'):
     # selected based on the 'SelectFromModel' threshold which does not support
     # a top n features. Feat_counts is therefore not used at the moment.
     feat_counts = classifier.get_support().astype(int)
+
+    # Run through the cross validation loops and record the feature selection
     count = 0
-    # Run through the cross validation loops abd record the feature selection
     for train, test in cv.split(X_train, Y_train):
         X = X_train[train]
         Y = Y_train.iloc[train]
@@ -269,8 +258,7 @@ def select_features(X_train, Y_train, threshold = 'mean'):
     if use_top:
         # Set threshold to the lowest importance value in the top n features
         threshold = np.sort(feat_importances, axis = -1)[::-1][top-1]
+    # Create an index array of which features satisfie the importance threshold
     important_feat_index = feat_importances >= threshold
     
     return important_feat_index
-    
- 
