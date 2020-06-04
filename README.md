@@ -29,8 +29,8 @@ In order to use this code you will have to setup an appropriate python environme
       - navigate to the directory containing this repository including the requirements.txt file with the cd command. 
       - run the following command:
           pip install -r requirements.txt
-      - Are there any errors? Then the best option would be to install anaconda and use step 1.1/1.2, otherwise install all packages below
-        manually, and all other packages requested when running the code:
+      - Are there any errors? Then the best option would be to install anaconda and use step 1.1/1.2, otherwise install
+        all packages below manually, and all other packages requested when running the code:
           - keras-gpu (or keras if you're not using CUDA)
           - tensorflow-gpu (or tensorflow if you're not using CUDA)
           - scikit-learn
