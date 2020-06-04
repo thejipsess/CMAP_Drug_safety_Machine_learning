@@ -24,12 +24,19 @@ In order to use this code you will have to setup an appropriate python environme
            conda activate keras-cuda2
       - Now you're all set, you can type 'spyder' in the anaconda command prompt to start using the code.
 
-   # 1.2 Installation on Linux/Mac or if step 1.1 failed
+   # 1.3 Installation with pip - no anaconda (NOT RECOMMENDED!)
       - Make sure you have Python 3 installed (this code has been tested only with python 3.6, 3.7 and 3.8)
       - navigate to the directory containing this repository including the requirements.txt file with the cd command. 
       - run the following command:
-          pip3 install -r requirements.txt
-          
+          pip install -r requirements.txt
+      - Are there any errors? Then the best option would be to install anaconda and use step 1.1/1.2, otherwise install all packages below manually, and all other packages requested when running the code:
+          - keras-gpu (or keras if you're not using CUDA)
+          - tensorflow-gpu (or tensorflow if you're not using CUDA)
+          - scikit-learn
+          - pandas
+          - numpy
+          - matplotlib (optional)
+          - seaborn (optional)
  
 # 2. The Code
 The code contains one main file: ‘Assignment_jip.py’. From this file, all the other scripts/functions are called. To get an idea of what this file does, have a look at the 'schematic_overview.svg' file in the repository
