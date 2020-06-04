@@ -116,17 +116,13 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     # Minimum number of samples required at each leaf node
     min_samples_leaf = [1, 4, 8]
     
-    # Method of selecting samples for training each tree
-    bootstrap = [True, False]
-    
     # Wrap the parameter space in random_grid
     random_grid = {'n_estimators': n_estimators,
                    'max_features': max_features,
                    'max_depth': max_depth,
                    'max_leaf_nodes' : max_leaf_nodes,
                    'min_samples_split': min_samples_split,
-                   'min_samples_leaf': min_samples_leaf,
-                   'bootstrap': bootstrap}
+                   'min_samples_leaf': min_samples_leaf}
     
     
     #===Run a randomised search for the optimal parameter setting===#
@@ -144,7 +140,6 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     
     #=== Narrow down random optimal solutions to the best hyperparamets ===#
     # Extrapolate random optimal parameter values
-    bootstrap = param_opt_rand.best_estimator_.bootstrap
     max_depth = param_opt_rand.best_estimator_.max_depth
     max_features = param_opt_rand.best_estimator_.max_features
     max_leaf_nodes = param_opt_rand.best_estimator_.max_leaf_nodes
@@ -155,7 +150,6 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     # IDEA: implement a precision variable. Divide the step size and the offset
     # used in the np.arange() by the precision which should by default be 1.
     param_grid = {
-        'bootstrap': [bootstrap],
         'max_depth': [np.arange(max_depth-10, max_depth + 21, 10), None],
         'max_features': ['auto', 'sqrt'],
         'min_samples_leaf': np.arange(min_samples_leaf - 1 ,
