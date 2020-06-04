@@ -9,5 +9,6 @@ dependencies:
   - spyder
   - numpy
   - matplotlib
+  - seaborn
 prefix: C:\ProgramData\Anaconda3\envs\keras-cuda2
 

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 841.9 1190.6" style="enable-background:new 0 0 841.9 1190.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#27AAE1;stroke:#27AAE1;stroke-width:4;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#27AAE1;stroke-width:2;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#006838;stroke-width:4;stroke-miterlimit:10;}
+	.st3{fill:#006838;}
+	.st4{fill:none;stroke:#AC3131;stroke-width:4;stroke-miterlimit:10;}
+	.st5{fill:none;}
+	.st6{fill:#F15A29;}
+	.st7{font-family:'TimesNewRomanPSMT';}
+	.st8{font-size:15px;}
+	.st9{fill:none;stroke:#F15A29;stroke-width:2;stroke-miterlimit:10;}
+	.st10{fill:#009444;}
+	.st11{fill:none;stroke:#009444;stroke-width:2;stroke-miterlimit:10;}
+	.st12{fill:#27AAE1;stroke:#F15A29;stroke-width:2;stroke-miterlimit:10;}
+	.st13{font-size:13px;}
+	.st14{fill:#779182;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st15{fill:#F15A29;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st16{stroke:#000000;stroke-miterlimit:10;}
+	.st17{font-size:35px;}
+	.st18{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st19{font-size:20px;}
+	.st20{font-size:29px;}
+	.st21{font-size:19px;}
+	.st22{stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st23{fill:#F15A29;stroke:#F15A29;stroke-width:2;stroke-miterlimit:10;}
+	.st24{fill:#009444;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st25{font-size:23px;}
+	.st26{fill:#009444;stroke:#009444;stroke-width:2;stroke-miterlimit:10;}
+	.st27{fill:#BE1E2D;}
+	.st28{fill:none;stroke:#BE1E2D;stroke-width:2;stroke-miterlimit:10;}
+	.st29{fill:#AA6566;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st30{fill:#AB3131;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st31{font-size:21px;}
+	.st32{fill:#009444;stroke:#BE1E2D;stroke-width:2;stroke-miterlimit:10;}
+	.st33{fill:#AC3131;}
+	.st34{fill:#27AAE1;}
+	.st35{fill:#F15A29;stroke:#27AAE1;stroke-width:2;stroke-miterlimit:10;}
+	.st36{fill:#87C9E0;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st37{fill:#27AAE1;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st38{fill:none;stroke:#27AAE1;stroke-width:4;stroke-miterlimit:10;}
+	.st39{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st40{font-size:28px;}
+	.st41{fill:#58595B;stroke:#58595B;stroke-miterlimit:10;}
+	.st42{fill:none;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<line id="XMLID_73_" class="st0" x1="722" y1="516.7" x2="722" y2="979.8"/>
+<line id="XMLID_153_" class="st1" x1="89.9" y1="1104" x2="100.6" y2="1104"/>
+<g id="XMLID_62_">
+	<g id="XMLID_100_">
+		<line id="XMLID_103_" class="st2" x1="528.3" y1="514.8" x2="528.3" y2="527.6"/>
+		<g id="XMLID_101_">
+			<path id="XMLID_102_" class="st3" d="M528.3,538.5c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1
+				C533.4,527,530.2,533.4,528.3,538.5z"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_91_" class="st4" x1="690.3" y1="514.8" x2="690.3" y2="751.3"/>
+<rect id="XMLID_38_" x="114" y="184.3" class="st5" width="89" height="18"/>
+<text id="XMLID_37_" transform="matrix(1 0 0 1 114 194.6748)" class="st6 st7 st8">Data.init()</text>
+<line id="XMLID_39_" class="st9" x1="89" y1="191.3" x2="110.3" y2="191.3"/>
+<line id="XMLID_40_" class="st9" x1="178" y1="191.3" x2="348.8" y2="191.3"/>
+<rect id="XMLID_59_" x="113" y="417.4" class="st5" width="217.7" height="18"/>
+<text id="XMLID_58_" transform="matrix(1 0 0 1 113 427.8415)" class="st10 st7 st8">Tree_prediction.select_features()</text>
+<line id="XMLID_57_" class="st11" x1="89" y1="424.4" x2="110.3" y2="424.4"/>
+<line id="XMLID_56_" class="st11" x1="321" y1="424.4" x2="348" y2="424.4"/>
+<rect id="XMLID_51_" x="113" y="491.4" class="st5" width="217.7" height="18"/>
+<text id="XMLID_50_" transform="matrix(1 0 0 1 113 501.8206)" class="st6 st7 st8">Data.feature_filter()</text>
+<line id="XMLID_49_" class="st12" x1="89" y1="498.4" x2="110.3" y2="498.4"/>
+<line id="XMLID_22_" class="st12" x1="240" y1="498.4" x2="348" y2="498.4"/>
+<rect id="XMLID_86_" x="99.7" y="634.5" class="st5" width="248.4" height="18"/>
+<text id="XMLID_85_" transform="matrix(1 0 0 1 99.6665 643.5761)" class="st10 st7 st13">Tree_prediction.hyperparameter_tuning()</text>
+<line id="XMLID_84_" class="st11" x1="89" y1="639.5" x2="99.7" y2="639.5"/>
+<line id="XMLID_83_" class="st11" x1="330.7" y1="639.5" x2="348" y2="639.5"/>
+<rect id="XMLID_90_" x="391" y="658.7" class="st14" width="274.6" height="79.3"/>
+<rect id="XMLID_3_" x="391" y="40.3" class="st15" width="274.6" height="60.5"/>
+<rect id="XMLID_2_" x="435.4" y="56.8" class="st5" width="192" height="27.5"/>
+<text id="XMLID_1_" transform="matrix(1 0 0 1 466.2036 81.0747)" class="st16 st7 st17">CAMDA </text>
+<g id="XMLID_4_">
+	<g id="XMLID_136_">
+		<line id="XMLID_139_" class="st18" x1="407.9" y1="100.8" x2="407.9" y2="143.1"/>
+		<g id="XMLID_137_">
+			<path id="XMLID_138_" d="M407.9,154c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C413.1,142.5,409.8,148.9,407.9,154z"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_6_" x="382" y="154" class="st5" width="291.5" height="29"/>
+<rect id="XMLID_8_" x="446.1" y="111.5" class="st5" width="205" height="58"/>
+<text id="XMLID_7_" transform="matrix(1 0 0 1 446.0812 125.3937)"><tspan x="0" y="0" class="st7 st19">• select label: DILI1</tspan><tspan x="0" y="24" class="st7 st19">• select expression data</tspan></text>
+<rect id="XMLID_10_" x="390.4" y="161" class="st15" width="274.6" height="60.5"/>
+<rect id="XMLID_17_" x="430.8" y="178" class="st5" width="192" height="27.5"/>
+<text id="XMLID_9_" transform="matrix(1 0 0 1 437.8205 198.1486)" class="st7 st20">Split validation</text>
+<rect id="XMLID_12_" x="390.4" y="245.3" class="st15" width="274.6" height="60.5"/>
+<rect id="XMLID_23_" x="407.1" y="261.8" class="st5" width="248.5" height="27.5"/>
+<text id="XMLID_11_" transform="matrix(1 0 0 1 435.0894 281.9048)" class="st7 st20">Split train &amp; test</text>
+<g id="XMLID_13_">
+	<g id="XMLID_131_">
+		<line id="XMLID_134_" class="st18" x1="528.3" y1="221.5" x2="528.3" y2="232.6"/>
+		<g id="XMLID_132_">
+			<path id="XMLID_133_" d="M528.3,243.5c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C533.4,232,530.2,238.4,528.3,243.5z"/>
+		</g>
+	</g>
+</g>
+<g id="XMLID_14_">
+	<g id="XMLID_118_">
+		<line id="XMLID_121_" class="st18" x1="407.9" y1="305.8" x2="407.9" y2="369.1"/>
+		<g id="XMLID_119_">
+			<path id="XMLID_120_" d="M407.9,380c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C413.1,368.5,409.8,374.9,407.9,380z"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_28_" x="446.1" y="315.5" class="st5" width="205" height="58"/>
+<text id="XMLID_27_" transform="matrix(1 0 0 1 446.0812 329.3937)"><tspan x="0" y="0" class="st7 st19">• up- or downsampling</tspan><tspan x="0" y="24" class="st7 st19">• scale data</tspan></text>
+<rect id="XMLID_29_" x="12" y="12" class="st5" width="220" height="36"/>
+<text id="XMLID_35_" transform="matrix(1 0 0 1 12 25.2051)" class="st7 st21">Assignment_jip.py</text>
+<line id="XMLID_36_" class="st22" x1="89" y1="33" x2="89" y2="1105.3"/>
+<line id="XMLID_41_" class="st9" x1="348.8" y1="191.3" x2="348.8" y2="18"/>
+<line id="XMLID_42_" class="st9" x1="348.8" y1="18" x2="375" y2="18"/>
+<line id="XMLID_43_" class="st9" x1="348.8" y1="191.3" x2="348.8" y2="375"/>
+<line id="XMLID_44_" class="st23" x1="347.8" y1="375" x2="375" y2="375"/>
+<rect id="XMLID_48_" x="390.4" y="393.3" class="st24" width="274.6" height="60.5"/>
+<rect id="XMLID_47_" x="430.8" y="400.6" class="st5" width="192" height="45.8"/>
+<text id="XMLID_46_" transform="matrix(1 0 0 1 458.1516 416.5682)"><tspan x="0" y="0" class="st7 st25">Find important </tspan><tspan x="32.3" y="27.6" class="st7 st25">features</tspan></text>
+<g id="XMLID_15_">
+	<g id="XMLID_112_">
+		<line id="XMLID_115_" class="st18" x1="528.3" y1="453.8" x2="528.3" y2="464.9"/>
+		<g id="XMLID_113_">
+			<path id="XMLID_114_" d="M528.3,475.8c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C533.4,464.3,530.2,470.6,528.3,475.8z"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_61_" class="st26" x1="348" y1="425" x2="348" y2="384"/>
+<line id="XMLID_60_" class="st26" x1="347.1" y1="384" x2="375" y2="384"/>
+<line id="XMLID_55_" class="st26" x1="348" y1="462.6" x2="348" y2="423.5"/>
+<line id="XMLID_54_" class="st26" x1="347.1" y1="462.9" x2="375" y2="462.9"/>
+<rect id="XMLID_70_" x="390.4" y="480.3" class="st15" width="364.6" height="34.5"/>
+<rect id="XMLID_69_" x="432.9" y="489" class="st5" width="192" height="22.9"/>
+<text id="XMLID_68_" transform="matrix(1 0 0 1 464.7028 504.9787)" class="st7 st25">Filter features</text>
+<line id="XMLID_21_" class="st12" x1="348" y1="499" x2="348" y2="473"/>
+<line id="XMLID_20_" class="st12" x1="347.1" y1="473" x2="375" y2="473"/>
+<line id="XMLID_19_" class="st12" x1="348" y1="522.5" x2="348" y2="497.5"/>
+<line id="XMLID_18_" class="st12" x1="347.1" y1="522.6" x2="375" y2="522.6"/>
+<rect id="XMLID_95_" x="390.4" y="543.6" class="st24" width="274.6" height="30.9"/>
+<rect id="XMLID_94_" x="435.7" y="550.3" class="st5" width="192" height="22"/>
+<text id="XMLID_93_" transform="matrix(1 0 0 1 456.638 566.312)" class="st7 st25">Random Forests</text>
+<g id="XMLID_87_">
+	<g id="XMLID_76_">
+		<line id="XMLID_140_" class="st18" x1="528.3" y1="575.5" x2="528.3" y2="587.1"/>
+		<g id="XMLID_77_">
+			<path id="XMLID_78_" d="M528.3,598c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C533.4,586.5,530.2,592.9,528.3,598z"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_82_" class="st26" x1="348" y1="645.5" x2="348" y2="534.3"/>
+<line id="XMLID_81_" class="st26" x1="347.1" y1="534.3" x2="375" y2="534.3"/>
+<line id="XMLID_80_" class="st26" x1="348" y1="747.5" x2="348" y2="641.5"/>
+<line id="XMLID_52_" class="st26" x1="347" y1="748.3" x2="375" y2="748.3"/>
+<rect id="XMLID_99_" x="391" y="601.3" class="st24" width="274.6" height="57.4"/>
+<rect id="XMLID_98_" x="431.8" y="606" class="st5" width="192" height="49.2"/>
+<text id="XMLID_97_" transform="matrix(1 0 0 1 455.6009 621.9787)"><tspan x="0" y="0" class="st7 st25">hyperparameter </tspan><tspan x="14.7" y="27.6" class="st7 st25">optimisation</tspan></text>
+<rect id="XMLID_89_" x="401" y="669.5" class="st5" width="223.6" height="91.7"/>
+<text id="XMLID_88_" transform="matrix(1 0 0 1 400.9704 683.3937)"><tspan x="0" y="0" class="st7 st19">• optimise roc_auc_score</tspan><tspan x="0" y="24" class="st7 st19">• save best model</tspan><tspan x="0" y="48" class="st7 st19">• evaluate on test set</tspan></text>
+<rect id="XMLID_130_" x="100.6" y="867.5" class="st5" width="248.4" height="18"/>
+<text id="XMLID_129_" transform="matrix(1 0 0 1 100.6115 876.5761)" class="st27 st7 st13">SVM_prediction.hyperparameter_tuning()</text>
+<line id="XMLID_128_" class="st28" x1="89.9" y1="872.5" x2="100.6" y2="872.5"/>
+<line id="XMLID_127_" class="st28" x1="331.6" y1="872.5" x2="348.9" y2="872.5"/>
+<rect id="XMLID_126_" x="392.1" y="891.7" class="st29" width="274.6" height="79.3"/>
+<rect id="XMLID_125_" x="391.6" y="776.6" class="st30" width="274.6" height="30.9"/>
+<rect id="XMLID_124_" x="425" y="783.3" class="st5" width="213.3" height="22"/>
+<text id="XMLID_123_" transform="matrix(1 0 0 1 427.9027 797.9214)" class="st7 st31">Support Vector Machine</text>
+<g id="XMLID_117_">
+	<g id="XMLID_143_">
+		<line id="XMLID_146_" class="st18" x1="529.4" y1="808.5" x2="529.4" y2="820.1"/>
+		<g id="XMLID_144_">
+			<path id="XMLID_145_" d="M529.4,831c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C534.5,819.5,531.3,825.9,529.4,831z"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_111_" class="st32" x1="349" y1="878.5" x2="349" y2="767.3"/>
+<line id="XMLID_110_" class="st32" x1="348" y1="767.3" x2="376" y2="767.3"/>
+<line id="XMLID_109_" class="st32" x1="349" y1="980.5" x2="349" y2="874.5"/>
+<line id="XMLID_108_" class="st32" x1="348.2" y1="981.3" x2="376" y2="981.3"/>
+<rect id="XMLID_107_" x="392.1" y="834.3" class="st30" width="274.6" height="57.4"/>
+<rect id="XMLID_106_" x="435.4" y="839" class="st5" width="192" height="49.2"/>
+<text id="XMLID_105_" transform="matrix(1 0 0 1 459.1997 854.9787)"><tspan x="0" y="0" class="st7 st25">hyperparameter </tspan><tspan x="14.7" y="27.6" class="st7 st25">optimisation</tspan></text>
+<rect id="XMLID_96_" x="406.1" y="902.5" class="st5" width="223.6" height="91.7"/>
+<text id="XMLID_92_" transform="matrix(1 0 0 1 406.0812 916.3937)"><tspan x="0" y="0" class="st7 st19">• optimise accuracy</tspan><tspan x="0" y="24" class="st7 st19">• save best model</tspan><tspan x="0" y="48" class="st7 st19">• evaluate on test set</tspan></text>
+<line id="XMLID_16_" class="st4" x1="690.3" y1="749.3" x2="529.4" y2="749.3"/>
+<g id="XMLID_24_">
+	<g id="XMLID_156_">
+		<line id="XMLID_159_" class="st4" x1="531.4" y1="747.5" x2="531.4" y2="756.5"/>
+		<g id="XMLID_157_">
+			<path id="XMLID_158_" class="st33" d="M531.4,767.3c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1
+				C536.5,755.9,533.2,762.2,531.4,767.3z"/>
+		</g>
+	</g>
+</g>
+<rect id="XMLID_155_" x="100.6" y="1099.1" class="st5" width="168" height="18"/>
+<text id="XMLID_154_" transform="matrix(1 0 0 1 100.612 1108.1177)" class="st34 st7 st13">ANN.hyperparameter_tuning()</text>
+<line id="XMLID_152_" class="st35" x1="268.6" y1="1104" x2="348.9" y2="1104"/>
+<rect id="XMLID_151_" x="391" y="1114.2" class="st36" width="274.6" height="62.8"/>
+<rect id="XMLID_150_" x="391.6" y="999.1" class="st37" width="274.6" height="30.9"/>
+<rect id="XMLID_149_" x="406.1" y="1005.9" class="st5" width="252.9" height="22"/>
+<text id="XMLID_148_" transform="matrix(1 0 0 1 423.5004 1020.4639)" class="st7 st31">Artificial Neural Network</text>
+<g id="XMLID_142_">
+	<g id="XMLID_161_">
+		<line id="XMLID_164_" class="st18" x1="529.4" y1="1031" x2="529.4" y2="1042.7"/>
+		<g id="XMLID_162_">
+			<path id="XMLID_163_" d="M529.4,1053.5c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1C534.5,1042.1,531.3,1048.4,529.4,1053.5z"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_67_" class="st35" x1="349" y1="1110.1" x2="349" y2="994.2"/>
+<line id="XMLID_66_" class="st35" x1="348.2" y1="994.2" x2="376" y2="994.2"/>
+<line id="XMLID_34_" class="st35" x1="349" y1="1182" x2="349" y2="1106"/>
+<line id="XMLID_33_" class="st35" x1="348.2" y1="1182.6" x2="376" y2="1182.5"/>
+<rect id="XMLID_32_" x="391" y="1061.4" class="st37" width="274.6" height="57.4"/>
+<rect id="XMLID_31_" x="435.4" y="1065.5" class="st5" width="192" height="49.2"/>
+<text id="XMLID_30_" transform="matrix(1 0 0 1 459.1997 1081.4851)"><tspan x="0" y="0" class="st7 st25">hyperparameter </tspan><tspan x="14.7" y="27.6" class="st7 st25">optimisation</tspan></text>
+<rect id="XMLID_26_" x="406.1" y="1125" class="st5" width="223.6" height="91.7"/>
+<text id="XMLID_25_" transform="matrix(1 0 0 1 406.0812 1138.9358)"><tspan x="0" y="0" class="st7 st19">• optimise accuracy</tspan><tspan x="0" y="24" class="st7 st19">• evaluate on test set</tspan></text>
+<line id="XMLID_72_" class="st0" x1="722" y1="977.8" x2="531.7" y2="977.8"/>
+<g id="XMLID_45_">
+	<line id="XMLID_173_" class="st34" x1="533.6" y1="976.3" x2="533.6" y2="998.9"/>
+	<g id="XMLID_169_">
+		<line id="XMLID_172_" class="st38" x1="533.6" y1="976.3" x2="533.6" y2="988"/>
+		<g id="XMLID_170_">
+			<path id="XMLID_171_" class="st34" d="M533.6,998.9c-1.9-5.1-5.1-11.5-8.6-15.4l8.6,3.1l8.6-3.1
+				C538.8,987.4,535.5,993.8,533.6,998.9z"/>
+		</g>
+	</g>
+</g>
+<line id="XMLID_53_" class="st39" x1="12" y1="33" x2="158.5" y2="33"/>
+<rect id="XMLID_64_" x="771.3" y="49.8" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_63_" transform="matrix(1 0 0 1 771.333 69.2933)" class="st7 st40">1.</text>
+<rect id="XMLID_71_" x="771.3" y="118.5" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_65_" transform="matrix(1 0 0 1 771.333 137.9538)" class="st7 st40">1.1</text>
+<rect id="XMLID_165_" x="771.3" y="184" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_74_" transform="matrix(1 0 0 1 771.333 203.4538)" class="st7 st40">1.2</text>
+<line id="XMLID_166_" class="st41" x1="766.3" y1="1182" x2="766.3" y2="13.3"/>
+<rect id="XMLID_174_" x="771.3" y="265.2" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_167_" transform="matrix(1 0 0 1 771.333 284.7038)" class="st7 st40">1.3</text>
+<rect id="XMLID_176_" x="771.3" y="7" class="st5" width="65.9" height="26"/>
+<text id="XMLID_175_" transform="matrix(1 0 0 1 771.3333 16.0348)" class="st7 st13">step number</text>
+<rect id="XMLID_178_" x="771.3" y="326.2" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_177_" transform="matrix(1 0 0 1 771.333 345.6683)" class="st7 st40">1.4</text>
+<rect id="XMLID_180_" x="771.3" y="409.2" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_179_" transform="matrix(1 0 0 1 771.333 428.6266)" class="st7 st40">2.1</text>
+<rect id="XMLID_182_" x="771.3" y="486.8" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_181_" transform="matrix(1 0 0 1 771.333 506.2455)" class="st7 st40">2.2</text>
+<rect id="XMLID_184_" x="771.3" y="550.5" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_183_" transform="matrix(1 0 0 1 771.333 569.9183)" class="st7 st40">3.</text>
+<rect id="XMLID_186_" x="771.3" y="618.8" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_185_" transform="matrix(1 0 0 1 771.333 638.2662)" class="st7 st40">3.1</text>
+<rect id="XMLID_188_" x="771.3" y="779.4" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_187_" transform="matrix(1 0 0 1 771.333 798.8378)" class="st7 st40">4.</text>
+<rect id="XMLID_190_" x="771.3" y="846.9" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_189_" transform="matrix(1 0 0 1 771.333 866.3348)" class="st7 st40">4.1</text>
+<rect id="XMLID_194_" x="771.3" y="1007" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_193_" transform="matrix(1 0 0 1 771.333 1026.4194)" class="st7 st40">5.</text>
+<rect id="XMLID_192_" x="771.3" y="1074.5" class="st5" width="76.7" height="41.3"/>
+<text id="XMLID_191_" transform="matrix(1 0 0 1 771.333 1093.9165)" class="st7 st40">5.1</text>
+<rect id="XMLID_195_" class="st42" width="841.9" height="1190.6"/>
+</svg>
