@@ -102,7 +102,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     n_estimators = [50, 100, 200, 400, 800, 1000, 1400, 2000]
     
     # Number of features to consider at every split
-    max_features = ['auto', 'None']
+    max_features = ['auto', None]
     
     # Maximum number of levels in tree
     max_depth = [10, 20, 30, 40, 60, 80, 110]
@@ -151,7 +151,7 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     # used in the np.arange() by the precision which should by default be 1.
     param_grid = {
         'max_depth': [np.arange(max_depth-10, max_depth + 21, 10), None],
-        'max_features': ['auto', 'sqrt'],
+        'max_features': ['auto', None],
         'min_samples_leaf': np.arange(min_samples_leaf - 1 ,
                                       min_samples_leaf + 2),
         'max_leaf_nodes' : [np.arange(max_leaf_nodes - 10,
