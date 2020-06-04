@@ -101,9 +101,9 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
                                                 classifier_gridsearch.best_estimator_.predict(X_test))
     
     # Locally save results
-    RandomForests_params_file = open("Hyperparameters/SVM.pkl", "wb")
-    pickle.dump(RandomForests_params_opt, RandomForests_params_file)
-    RandomForests_params_file.close()
+    SVM_params_file = open("Hyperparameters/SVM.pkl", "wb")
+    pickle.dump(SVC_params_opt, SVM_params_file)
+    SVM_params_file.close()
     
     # Locally save the entire model
     joblib.dump(classifier_gridsearch.best_estimator_,

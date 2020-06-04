@@ -115,3 +115,50 @@ for file in files:
         print(f'finnished iteration for data file: {file[0:2] + file2[0:2]}')
         print(f'accuracy: {accuracy}, AUROC: {AUROC}')
         print(f'Iteration {i}/15 and time elapsed: {(time.time() - starttime)/60:.0f} minutes\n\n')
+        
+# %% Test feature selection robustness
+from sklearn.model_selection import RepeatedStratifiedKFold
+import seaborn as sns
+
+
+file = 'p7-mcf7-camda2020.csv'
+
+entrez_IDs = pd.read_csv('Data/p7-mcf7-camda2020.csv').drop('CAM_ID', axis = 1).columns
+
+X_train, Y_train, X_test, Y_test = init(file = file,
+                                                label = 'DILI1',
+                                                upsample = False,
+                                                downsample = False)
+        
+features = pd.DataFrame(0, columns = entrez_IDs,
+                                    index = ['count', 'importance']) 
+
+
+cv = RepeatedStratifiedKFold(n_splits=10, n_repeats=5)
+
+starttime = time.time()
+i = 0
+for train, test in cv.split(X_train, Y_train):
+    count, importance = Tree_prediction.select_features(X_train, Y_train,
+                                                        threshold = 'top10',
+                                                        return_importance = True)
+    features.iloc[0,:] += count.astype(int)
+    features.iloc[1,:] += importance
+    
+    i += 1
+    print(f'Iteration {i}/50 and time elapsed: {(time.time() - starttime)/60:.0f} minutes\n\n')
+    
+features = features.sort_values(by = ['count', 'importance'],
+                                axis = 1,
+                                ascending = False)
+
+top10_IDs = features.columns[0:10]
+top10_count = features.loc['count'][0:10]
+    
+sns.set_style("whitegrid")
+palette = sns.color_palette("Blues_d", 10)
+sns.set_palette(palette)
+plot = sns.barplot(x=top10_IDs, y=top10_count, order = top10_IDs)
+plot.set(xlabel = 'Entrez gene ID', ylabel = 'number of times selected')
+plot.get_figure().savefig("Plots/Feature_robustness_p7.png", dpi = 300)    
+        

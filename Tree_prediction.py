@@ -206,7 +206,8 @@ def hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
     return classifier_gridsearch
 
 # %% Find the features that satisfy a given importance threshold
-def select_features(X_train, Y_train, threshold = 'mean'):
+def select_features(X_train, Y_train, threshold = 'mean',
+                    return_importance = False):
     # IDEA: implement a check for the availability of a local hyperparameter
     # fil such that that the feature selection can be performed using a
     # hyperparameter optimised random forest opposed to a default one.
@@ -261,4 +262,7 @@ def select_features(X_train, Y_train, threshold = 'mean'):
     # Create an index array of which features satisfie the importance threshold
     important_feat_index = feat_importances >= threshold
     
-    return important_feat_index
+    if return_importance == True:
+        return (important_feat_index, feat_importances)
+    else:
+        return important_feat_index

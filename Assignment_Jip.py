@@ -21,34 +21,29 @@ import SVM_prediction
 import ANN
 
 # %% Initialise the data
-
-X_train, Y_train, X_test, Y_test = init(file = 'all',
+X_train, Y_train, X_test, Y_test = init(file = 'p3-phh-camda2020.csv',
                                         label = 'DILI1',
                                         upsample = True,
                                         downsample = False)
 
 # %% Feature Selection
 important_feat_index = Tree_prediction.select_features(X_train, Y_train,
-                                                         threshold = 'mean')
+                                                         threshold = 'top1000')
 
 # Filter all the data on the feature selection
 [X_train, X_test] = feature_filter([X_train, X_test],
                                    important_feat_index)
 
-# %% Decision Tree and Random Forests
+# %% Random Forest
 forest_model = Tree_prediction.hyperparameter_tuning(X_train, Y_train,
                                                      X_test, Y_test,
                                                      score = 'roc_auc',
-                                                     save_name = 'forest_model_all_10')
-
-Tree_model, forest_model = Tree_prediction.fit(X_train,Y_train,
-                                               X_test, Y_test,
-                                               use_local_parameters = True)
-
+                                                     save_name = 'forest_model')
 
 # %% Support Vector machine
 SVM_model =  SVM_prediction.hyperparameter_tuning(X_train, Y_train,
-                                                  X_test, Y_test)
+                                                  X_test, Y_test,
+                                                      save_name = 'SVM_model')
 
 # %% Artificial Neural Network
 ANN_model = ANN.hyperparameter_tuning(X_train, Y_train, X_test, Y_test,
