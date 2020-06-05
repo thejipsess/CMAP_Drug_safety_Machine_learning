@@ -40,4 +40,6 @@ In order to use this code you will have to setup an appropriate python environme
           - seaborn (optional)
  
 # 2. The Code
-The code contains one main file: ‘Assignment_jip.py’. From this file, all the other scripts/functions are called. To get an idea of what this file does, have a look at the 'schematic_overview.svg' file in the repository
+The code contains one main file: ‘Assignment_jip.py’. From this file, all the other scripts/functions are called. To get an idea of what this file does, have a look at the 'schematic_overview.svg' file in the repository.
+
+Mass_evaluator.py is not part of the pipeline but was used to quickly run many comparisons and is therefore not properly documented.
