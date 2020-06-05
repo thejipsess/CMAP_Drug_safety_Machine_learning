@@ -16,6 +16,11 @@ from sklearn.utils import resample
 def feature_filter(data, feat_index):
     # This function takes your X_train & X_test data and filters out the
     # selected features based on the feat_index which is a boolean indexer.
+    
+    # If only one data set was passed, put it in a list
+    if not type(data) == list:
+        data = [data]
+    
     for i in range(len(data)):
         
         # Filter appropriately depending on data type
@@ -23,6 +28,10 @@ def feature_filter(data, feat_index):
             data[i] = data[i][:, feat_index]
         else:
             data[i] = data[i].iloc[:, feat_index]
+      
+    # If only only data set was passed, only return one data set
+    if len(data) == 1:
+        return data[0]
             
     return data
 
