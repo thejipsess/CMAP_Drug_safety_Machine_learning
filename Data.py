@@ -27,7 +27,7 @@ def feature_filter(data, feat_index):
     return data
 
 # %% Loading & pre-processing of the data
-def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
+def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_validation = False,
          upsample = False, downsample = False):
     
     if downsample == True & upsample == True:
@@ -75,9 +75,10 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
                         'the same samples!!')
     
     # Seperate the validation sets
-    # These sets are currently not used
     Y_val = Y.loc[Y.Training_Validation != 'Training Set']
     X_val = X.loc[X.CAM_ID.isin(Y_val.CAM_ID)]
+    # Set CAM_ID as rowname
+    X_val.set_index('CAM_ID', inplace = True, verify_integrity = True)
     
     # Remove validation sets from the test and training sets
     Y = Y.loc[Y.Training_Validation == 'Training Set']
@@ -167,8 +168,8 @@ def init(label = 'DILI1', file = 'p7-mcf7-camda2020.csv', return_all = False,
     Y_test_all = Y_test
     Y_test = Y_test[label]
     
-    if return_all:
-        return(X_train, Y_train, X_test, Y_test, Y_train_all, Y_test_all)
+    if return_validation:
+        return(X_train, Y_train, X_test, Y_test, X_val, Y_val)
     else:
         return(X_train, Y_train, X_test, Y_test)
     
